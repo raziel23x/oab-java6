@@ -4,7 +4,7 @@
 # See the file "LICENSE" for the full license governing this code.
 
 # References
-#  - https://github.com/rraptorr/sun-java6
+#  - https://github.com/raziel23x/sun-java6
 #  - http://ubuntuforums.org/showthread.php?t=1090731
 #  - http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/gpg-cs.html
 
@@ -237,8 +237,8 @@ function usage() {
     echo "This script is merely a wrapper for the most excellent Debian packaging"
     echo "scripts prepared by Janusz Dziemidowicz."
     echo
-    echo "* https://github.com/rraptorr/sun-java6"
-    echo "* https://github.com/rraptorr/oracle-java7"    
+    echo "* https://github.com/raziel23x/sun-java6"
+    echo "* https://github.com/raziel23x/oracle-java7"    
     echo
     echo "The basic execution steps are:"
     echo
@@ -246,7 +246,7 @@ function usage() {
     echo "* Install the tools required to build the Java packages."
     echo "* Create download cache in ``${WORK_PATH}/pkg``."
     echo "* Download the i586 and x64 Java install binaries from Oracle. Yes, both are required."
-    echo "* Clone the build scripts from https://github.com/rraptorr/"
+    echo "* Clone the build scripts from https://github.com/raziel23x/"
     echo "* Build the Java packages applicable to your system."    
     echo "* Create local ``apt`` repository in ``${WORK_PATH}/deb`` for the newly built Java Packages."
     echo "* Create a GnuPG signing key in ``${WORK_PATH}/gpg`` if none exists."
@@ -345,7 +345,7 @@ BUILD_CLEAN=0
 SKIP_REBUILD=""
 WORK_PATH="/var/local/oab"
 JAVA_DEV="sun-java"
-JAVA_UPSTREAM="sun-java6"
+JAVA_UPSTREAM="oracle-java6"
 
 # Remove a pre-existing log file.
 if [ -f $log ]; then
@@ -405,15 +405,15 @@ chown root:root ${WORK_PATH}/gpg 2>/dev/null
 chmod 0700 ${WORK_PATH}/gpg 2>/dev/null
 
 # Remove the 'src' directory everytime.
-ncecho " [x] Removing clones of https://github.com/rraptorr/${JAVA_UPSTREAM} "
+ncecho " [x] Removing clones of https://github.com/raziel23x/${JAVA_UPSTREAM} "
 rm -rfv ${WORK_PATH}/${JAVA_UPSTREAM}* 2>/dev/null >> "$log" 2>&1
 rm -rfv ${WORK_PATH}/src 2>/dev/null >> "$log" 2>&1 &
 pid=$!;progress $pid
 
 # Clone the code
-ncecho " [x] Cloning https://github.com/rraptorr/${JAVA_UPSTREAM} "
+ncecho " [x] Cloning https://github.com/raziel23x/${JAVA_UPSTREAM} "
 cd ${WORK_PATH}/ >> "$log" 2>&1
-git clone https://github.com/rraptorr/${JAVA_UPSTREAM} src >> "$log" 2>&1 &
+git clone https://github.com/raziel23x/${JAVA_UPSTREAM} src >> "$log" 2>&1 &
 pid=$!;progress $pid
 
 # Get the last commit tag.
@@ -516,7 +516,7 @@ if [ -n "${SKIP_REBUILD}" -a -r "${WORK_PATH}/deb/${JAVA_DEV}${JAVA_VER}_${NEW_V
 fi
 
 # Genereate a build message
-BUILD_MESSAGE="Automated build for ${LSB_REL} using https://github.com/rraptorr/${JAVA_UPSTREAM}"
+BUILD_MESSAGE="Automated build for ${LSB_REL} using https://github.com/raziel23x/${JAVA_UPSTREAM}"
 
 # Change directory to the build directory
 cd ${WORK_PATH}/src
