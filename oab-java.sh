@@ -9,7 +9,7 @@
 #  - http://irtfweb.ifa.hawaii.edu/~lockhart/gpg/gpg-cs.html
 
 # Version
-VER="0.2.6"
+VER="0.2.7"
 
 # common ############################################################### START #
 sp="/-\|"
