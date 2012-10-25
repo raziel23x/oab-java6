@@ -28,10 +28,12 @@ How do I download and run this thing?
 Like this.
 ::
 
-  cd ~/
-  wget https://raw.github.com/raziel23x/oab-java6/master/oab-java.sh -O oab-java.sh
-  chmod +x oab-java.sh
-  sudo ./oab-java.sh
+	cd ~/
+	wget https://raw.github.com/raziel23x/oab-java6/master/oab-java.sh -O oab-java.sh
+  
+	chmod +x oab-java.sh
+  
+	sudo ./oab-java.sh
 
 If you are behind a proxy you may need to run using:
 ::
